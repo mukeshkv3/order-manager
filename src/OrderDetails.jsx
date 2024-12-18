@@ -1,7 +1,8 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import  { useEffect, useState } from 'react'
 import { Table } from './Table'
 import Search from './Search'
+import AddOrder from './AddOrder'
 
 const OrderDetails = () => {
 
@@ -24,6 +25,8 @@ const OrderDetails = () => {
         }
     }
 
+    const addOrder = (newOrder) => { setOrders(prevOrders => [...prevOrders, newOrder]) }
+
     const filteredData = orders.filter((order) =>
         order.customerName && order.customerName.toLowerCase().includes(searchTerm.toLowerCase())
     )
@@ -36,6 +39,9 @@ const OrderDetails = () => {
             <h1>Search and Filter Table</h1>
             <Search searchTerm={searchTerm} onSearchChange={handleSearchChange} />
             <Table orders={filteredData} headers={headers}></Table>
+            <div className='card'>
+                <AddOrder addOrder={addOrder}></AddOrder>
+            </div>
         </div>
     )
 }

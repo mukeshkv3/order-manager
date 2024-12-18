@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React from 'react'
+import 'react'
 import { TableRow } from './TableRow'
 
 export const TableBody = ({ orders }) => {

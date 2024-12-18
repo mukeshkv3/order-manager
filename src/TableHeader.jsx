@@ -1,5 +1,5 @@
-import React from 'react'
-import { TableRow } from './TableRow'
+/* eslint-disable react/prop-types */
+import 'react'
 
 export const TableHeader = ({ headers }) => {
     return (
