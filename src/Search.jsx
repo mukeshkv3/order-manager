@@ -1,5 +1,4 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/prop-types */
+import "./app.css"
 import React from 'react';
 
 const Search = ({ searchTerm, onSearchChange }) => {

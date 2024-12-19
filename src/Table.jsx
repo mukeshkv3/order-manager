@@ -7,7 +7,7 @@ import './Table.css'
 export const Table = ({ orders, headers, onDeleteOrder }) => {
     return (
         <div>
-            <table class="table-bordered">
+            <table className="table-bordered">
                 <TableHeader headers={headers}></TableHeader>
                 <TableBody orders={orders} onDeleteOrder={onDeleteOrder}></TableBody>
             </table>

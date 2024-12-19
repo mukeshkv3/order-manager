@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './AddOrder.css'
 
 const AddOrder = ({ addOrder }) => {
     const initialValue = { id: 0, customerName: '', value: 0 }

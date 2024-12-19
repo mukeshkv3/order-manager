@@ -3,10 +3,13 @@ import { ProductContext } from './Provider'
 
 const Logistic = () => {
 
-  const { message, handleClick } = useContext(ProductContext)
+  const { message, handleClick, bgTheme } = useContext(ProductContext)
 
   return (
-    <div>{message} in Logistic</div>
+    <div style={{ backgroundColor: bgTheme }}>
+      {message} in Logistic
+      <button onClick={handleClick}>Click Me</button>
+    </div>
   )
 }
 

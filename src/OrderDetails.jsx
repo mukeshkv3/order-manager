@@ -14,7 +14,7 @@ const OrderDetails = () => {
         setSearchTerm(event.target.value)
     }
 
-    const headers = ["ID", "Customer Name", "Value"]
+    const headers = ["ID", "Customer Name", "Value", "Action"]
 
     const fetchData = async () => {
         try {

@@ -1,4 +1,6 @@
 import './App.css'
+import Logistic from './context-related/Logistic';
+import PartnerStore from './context-related/PartnerStore';
 import Provider from './context-related/Provider';
 import OrderDetails from './OrderDetails'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -9,7 +11,10 @@ function App() {
     <>
       <div>
         <OrderDetails></OrderDetails>
-        <Provider></Provider>
+        <Provider>
+          <PartnerStore></PartnerStore>
+          <Logistic></Logistic>
+        </Provider>
       </div>
     </>
   )
