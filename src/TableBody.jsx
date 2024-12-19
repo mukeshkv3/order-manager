@@ -2,11 +2,11 @@
 import 'react'
 import { TableRow } from './TableRow'
 
-export const TableBody = ({ orders }) => {
+export const TableBody = ({ orders, onDeleteOrder }) => {
     return (
         <tbody>
             {orders.map((item, index) => (
-                <TableRow key={index} item={item} />
+                <TableRow key={index} item={item} onDeleteOrder={onDeleteOrder} />
             ))}
         </tbody>
     )

@@ -27,6 +27,9 @@ const OrderDetails = () => {
 
     const addOrder = (newOrder) => { setOrders(prevOrders => [...prevOrders, newOrder]) }
 
+    const deleteOrder = (orderId) => { setOrders(prevOrders => prevOrders.filter(order => order.id !== orderId))
+    }
+
     const filteredData = orders.filter((order) =>
         order.customerName && order.customerName.toLowerCase().includes(searchTerm.toLowerCase())
     )
@@ -38,7 +41,7 @@ const OrderDetails = () => {
         <div>
             <h1>Search and Filter Table</h1>
             <Search searchTerm={searchTerm} onSearchChange={handleSearchChange} />
-            <Table orders={filteredData} headers={headers}></Table>
+            <Table orders={filteredData} headers={headers} onDeleteOrder={deleteOrder}></Table>
             <div className='card'>
                 <AddOrder addOrder={addOrder}></AddOrder>
             </div>

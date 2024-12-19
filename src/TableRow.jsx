@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import 'react'
 
-export const TableRow = ({ item }) => {
+export const TableRow = ({ item, onDeleteOrder }) => {
     return (
         <tr>
             {
@@ -9,6 +9,9 @@ export const TableRow = ({ item }) => {
                     <td key={index}>{value}</td>
                 ))
             }
+            <td>
+                <button onClick={() => onDeleteOrder(item.id)}>Delete</button>
+            </td>
         </tr>
     )
 }
