@@ -3,10 +3,10 @@ import { ProductContext } from './Provider'
 
 const PartnerStore = () => {
 
-    let contextDate = useContext(ProductContext)
+  const { message, handleClick } = useContext(ProductContext)
 
   return (
-    <div>PartnerStore</div>
+    <div>{message} in PartnerStore</div>
   )
 }
 
