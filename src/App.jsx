@@ -1,4 +1,4 @@
-import { BrowserRouter, useRoutes } from 'react-router-dom';
+import { BrowserRouter, Link, useRoutes } from 'react-router-dom';
 import './App.css'
 import Provider from './context-related/Provider';
 import OrderDetails from './OrderDetails'
@@ -20,9 +20,12 @@ function AppRoutes() {
 function App() {
 
   return (
-    <BrowserRouter>
-      <AppRoutes />
-    </BrowserRouter>
+    <>
+      <AppRoutes></AppRoutes>
+      <Link to={'/'}>Home</Link>
+      <Link to={'/orders'}>Orders</Link>
+      <Link to={'/client'}>Client</Link>
+    </>
   )
 }
 
