@@ -66,11 +66,13 @@ const OrderDetails = () => {
     return (
         <>
             <OrderContext.Provider value={{ orders, setOrders }}>
-                <div>
-                    <h1>Search and Filter Table</h1>
-                    <Search searchTerm={searchTerm} onSearchChange={handleSearchChange} />
-                    <Table orders={filteredData} headers={headers} onDeleteOrder={deleteOrder} onUpdateOrder={updateOrder}></Table>
-                    <div className='card'>
+                <div style={{ display: 'flex' }}>
+                    <div style={{ flex: 1, padding: '10px', backgroundColor: '#f9f9f9' }}>
+                        <h1>Search and Filter Table</h1>
+                        <Search searchTerm={searchTerm} onSearchChange={handleSearchChange} />
+                        <Table orders={filteredData} headers={headers} onDeleteOrder={deleteOrder} onUpdateOrder={updateOrder}></Table>
+                    </div>
+                    <div style={{ flex:0.3, padding: '10px', backgroundColor: '#e9e9e9' }}>
                         <AddOrder addOrder={addOrder}></AddOrder>
                     </div>
                 </div>

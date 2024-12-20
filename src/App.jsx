@@ -27,12 +27,12 @@ function App() {
     <>
       <OrderContext.Provider value={{ orders, setOrders }}>
         <div>
-          <AppRoutes></AppRoutes>
           <div className="nav-links">
             <Link to={'/'}>Home</Link>
             <Link to={'/orders'}>Orders</Link>
             <Link to={'/client'}>Client</Link>
           </div>
+          <AppRoutes></AppRoutes>
         </div>
       </OrderContext.Provider>
     </>
