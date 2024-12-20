@@ -1,12 +1,15 @@
 import axios from 'axios'
-import { useEffect, useState } from 'react'
+import { createContext, useEffect, useState } from 'react'
 import { Table } from './Table'
 import Search from './Search'
 import AddOrder from './AddOrder'
+import EditOrder from './EditOrder'
+
+export const OrderContext = createContext("")
 
 const OrderDetails = () => {
 
-    const [orders, setOrders] = useState([{}])
+    const [orders, setOrders] = useState([])
     const [searchTerm, setSearchTerm] = useState('')
     const BASE_URL = "http://localhost:8080/orders"
 
@@ -53,11 +56,6 @@ const OrderDetails = () => {
         }
     }
 
-    // const addOrder = (newOrder) => { setOrders(prevOrders => [...prevOrders, newOrder]) }
-
-    // const deleteOrder = (orderId) => { setOrders(prevOrders => prevOrders.filter(order => order.id !== orderId))
-    // }
-
     const filteredData = orders.filter((order) =>
         order.customerName && order.customerName.toLowerCase().includes(searchTerm.toLowerCase())
     )
@@ -66,14 +64,18 @@ const OrderDetails = () => {
         fetchData()
     }, [])
     return (
-        <div>
-            <h1>Search and Filter Table</h1>
-            <Search searchTerm={searchTerm} onSearchChange={handleSearchChange} />
-            <Table orders={filteredData} headers={headers} onDeleteOrder={deleteOrder} onUpdateOrder={updateOrder}></Table>
-            <div className='card'>
-                <AddOrder addOrder={addOrder}></AddOrder>
-            </div>
-        </div>
+        <>
+            <OrderContext.Provider value={{ orders, setOrders }}>
+                <div>
+                    <h1>Search and Filter Table</h1>
+                    <Search searchTerm={searchTerm} onSearchChange={handleSearchChange} />
+                    <Table orders={filteredData} headers={headers} onDeleteOrder={deleteOrder} onUpdateOrder={updateOrder}></Table>
+                    <div className='card'>
+                        <AddOrder addOrder={addOrder}></AddOrder>
+                    </div>
+                </div>
+            </OrderContext.Provider>
+        </>
     )
 }
 

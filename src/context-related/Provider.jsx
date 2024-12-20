@@ -1,6 +1,7 @@
 import React, { createContext, useState } from 'react'
 import PartnerStore from './PartnerStore'
 import Logistic from './Logistic'
+import OrderDetails from '../OrderDetails'
 
 export const ProductContext = createContext("")
 
@@ -19,7 +20,7 @@ const Provider = ({ children }) => {
     const contextData = {
         message,
         handleClick,
-        bgTheme
+        bgTheme,
     }
 
     return (
